@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab_1._1
+namespace Lab_1._5._1
 {
     public partial class Form1 : Form
     {
@@ -19,17 +19,16 @@ namespace Lab_1._1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(300, 500);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Opacity = 1;
+            System.Drawing.Drawing2D.GraphicsPath myPath =
+            new System.Drawing.Drawing2D.GraphicsPath();
+            myPath.AddEllipse(0, 0, this.Width, this.Height); 
+            Region myRegion = new Region(myPath);
+            this.Region = myRegion;
         }
     }
 }
