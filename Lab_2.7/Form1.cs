@@ -19,7 +19,7 @@ namespace Lab_2._7
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Cheked == true)
+            if (checkBox1.Checked == true)
             {
                 Label lbl = new Label();
                 lbl.Location = new System.Drawing.Point(16, 96);
@@ -38,7 +38,13 @@ namespace Lab_2._7
             }
             else
             {
-
+                int lcv;
+                lcv = groupBox1.Controls.Count;// определяется количество элементов
+                while (lcv > 4)
+                {
+                    groupBox1.Controls.RemoveAt(lcv - 1);
+                    lcv -= 1;
+                }
             }
         }
     }
