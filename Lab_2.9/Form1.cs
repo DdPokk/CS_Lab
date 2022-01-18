@@ -66,7 +66,27 @@ namespace Lab_2._9
             get { return (int)numericUpDown4.Value; }
             set { numericUpDown4.Value = value; }
         }
-        List<Item> its = new List<Item>();
+        public string title // Название
+        {
+            get { return textBox4.Text; }
+            set { textBox4.Text = value; }
+        }
+        public string volume // Том
+        {
+            get { return textBox5.Text; }
+            set { textBox5.Text = value; }
+        }
+        public int number // Номер
+        {
+            get { return (int)numericUpDown6.Value; }
+            set { numericUpDown6.Value = value; }
+        }
+        public int year // Год издания
+        {
+            get { return (int)numericUpDown7.Value; }
+            set { numericUpDown7.Value = value; }
+
+            List<Item> its = new List<Item>();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -84,13 +104,24 @@ namespace Lab_2._9
         private void button2_Click(object sender, EventArgs e)
         {
             if (SortInvNumber) its.Sort();
-
             StringBuilder sb = new StringBuilder();
             foreach (Item item in its)
             {
                 sb.Append("\n" + item.ToString());
             }
             richTextBox1.Text = sb.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Magazine b = new Magazine(title, year, volume, number, InvNumber, Existence);
+           if (ReturnTime) b.Return();
+            its.Add(b);
+            title = volume = "";
+            InvNumber = number = 0;
+            year = 2000;
+            Existence = ReturnTime = false;
+
         }
     }
 }
