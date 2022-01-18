@@ -85,6 +85,7 @@ namespace Lab_2._9
         {
             get { return (int)numericUpDown7.Value; }
             set { numericUpDown7.Value = value; }
+        }
 
             List<Item> its = new List<Item>();
 
