@@ -47,5 +47,29 @@ namespace Lab_2._8
                 }
             }
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Поле Name не может содержать цифры");
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Поле PIN не может содержать буквы");
+            }
+        }
+
+        private void checkBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            object Txt = null;
+            Txt.KeyPress += new KeyPressEventHandler(textBox2_KeyPress);
+        }
     }
 }
